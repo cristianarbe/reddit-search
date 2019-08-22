@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rectify Names</title>
+    <style>
+		.container { 
+			height: 200px;
+			position: relative;
+			border: 0px solid green; 
+		}
+
+		.vertical-center {
+			margin: 0;
+			position: absolute;
+			top: 50%;
+			-ms-transform: translateY(-50%);
+			transform: translateY(-50%);
+		}
+		
+		.all-center {
+			height: 150px;
+			width: 600px;
+
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			margin-top: -75px;
+			margin-left: -300px;
+		}
+	</style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+<div class="all-center">
+	<center>
+	<h1>Reddit Search</h1>
+    <br>
+    <input id="file" type="text" name="file" size="75">
+    <br>
+    <br>
+    <button id="sub" type="button" name="button" onclick="myFunction();">Search</button>
+    <p id="answer"></p>
+	<div class="container">
+</div>
+	</center>
+
+</div>
+
+
+    <script>
+        function myFunction() {
+            var theString = document.getElementById('file').value
+            theString = "https://www.google.com/search?q=" + theString + "+site%3Areddit.com"
+            theString = theString.replace(/\ /g, "+")
+            //$("#answer").text(theString);
+            //console.log(theString);
+			window.location.href = theString;
+        }
+
+        $("body").keypress(function() {
+            if (event.keyCode == "13") {
+                myFunction();
+            }
+        });
+    </script>
+</body>
+
+</html>
